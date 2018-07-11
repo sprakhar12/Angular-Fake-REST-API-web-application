@@ -1,0 +1,154 @@
+.navbar{
+	background-color: #e6e6e6;
+}
+
+a.non-focus{color:black;}
+a.non-focus:hover{color:black;}
+a.focus:link, a.focus:visited{color:grey;}
+
+.thumbnail-height{
+	background-color: #e6e6e6;
+	border: none;
+	overflow: hidden;
+	min-height: 300px;
+}
+
+.ngfor{
+	padding: 20px 10px;
+}
+
+.clickOnImage a:hover{
+	cursor: pointer;
+}
+
+.thumbnail-height>a>img{
+	padding: 5px 0px;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	height: auto;
+	width: auto;
+}
+
+.caption hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+div>hr{
+	border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.caption #name{
+	font-size: 20px;
+	font-family: "Courier New", Courier, monospace;
+	text-align: center;
+}
+
+.caption #description{
+	font-size: 14px;
+	font-family: "Courier New", Courier, monospace;
+	text-align: center;
+}
+
+
+.customTable{
+	text-align: center;
+	margin: 0 auto;
+	width: auto;
+	height: auto;
+	font-size: 16px;
+	font-family: "Courier New", Courier, monospace;
+}
+
+.customTable td span:hover{
+	cursor: pointer;
+	color: red;
+}
+
+.customTable td button:hover{
+	cursor: pointer;
+}
+
+.paginationStyle{
+	display: table;
+	margin: 0px auto;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Courier New", Courier, monospace;
+	text-align: center;
+}
+
+.navStyle{
+    color: white;
+}
+
+.navStyle a{
+	color: white;
+}
+
+.mid h1{
+	position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    font-weight: bold;
+    font-family: "Courier New", Courier, monospace;
+	font-size: 20px;
+	opacity: 0.4;
+}
+
+.mid img{
+	position: absolute;
+    top: 55%;
+    left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.3;
+	width: 250px;
+	height: 250px;
+}
+
+.mid a{
+	position: absolute;
+    top: 62%;
+    left: 50%;
+	text-align: center;
+	font-size: 30px;
+	color: black;
+}
+
+.mid a:hover{
+	color: lightseagreen;
+}
+
+.customForm{
+	margin: 0 auto;
+	width: 50%;
+	height: auto;
+    padding: 25px 0px 0px 0px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.customForm input[type=text]{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.customForm textarea{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.buttonCustomClass{
+    display: table;
+    margin: 0px auto;
+}
+
+.buttonCustomClass button{
+    margin: 5px;
+}

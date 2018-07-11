@@ -1,0 +1,34 @@
+<!-- inherited navbar from global header -->
+<nav class="navStyle navbar navbar-expand-lg navbar-light bg-dark">
+  <div class="container">
+    <a class="navbar-brand">ADD PHOTO</a>
+</div>
+</nav>
+
+<br>
+
+<!-- fill out the details in the form to create new entry-->
+<div class="container">
+<form class="customForm" >
+    <div class="form-group">
+      <label class="small" for="InputText1"><strong>Name</strong></label>
+      <input type="text" class="form-control" id="InputText1" #id>
+    </div>
+    <br>
+    <div class="form-group">
+        <label class="small" for="FormControlTextarea1"><strong>Description</strong></label>
+        <textarea class="form-control" id="FormControlTextarea1" rows="3" #title></textarea>
+    </div>
+    <br>
+    <div class="form-group">
+        <label class="small" for="InputUrls"><strong>URLs</strong></label>
+        <input type="text" id="InputUrls" class="form-control" #thumbnailUrl>
+    </div>
+    <br>
+    <div class="buttonCustomClass">
+        <button [routerLink]="['']" class="buttonStyle" type="button" class="btn btn-secondary">Back</button>
+        <button class="buttonStyle" type="button" class="btn btn-primary" (click)="CreateData(id, title, thumbnailUrl)">Save</button>
+    </div>
+</form>
+</div>
+

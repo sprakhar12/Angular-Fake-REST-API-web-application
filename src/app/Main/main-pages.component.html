@@ -1,0 +1,128 @@
+<!-- navbar or you can call it global header -->
+<nav class="navStyle navbar navbar-expand-lg navbar-light bg-dark">
+    <div class="container">
+      <a class="navbar-brand">ALBUM</a>
+      <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent" [collapse]="isCollapsed">
+      <ul [hidden]="showUpdate" class="nav navbar-nav ml-auto">
+        <li routerLinkActive="current" class="nav-item ml-auto">
+          <a (click)="showTile()" class="navStyle nav-link" routerLink=""><span class="fa fa-th">&nbsp; Tile View</span></a>
+        </li>
+        <li routerLinkActive="current" class="nav-item ml-auto">
+          <a (click)="showTable()" class="navStyle nav-link" routerLink=""><span class="fa fa-th-list">&nbsp; Table View</span></a>
+        </li>
+        <li class="nav-item ml-auto">
+          <a class="navStyle nav-link" [routerLink]="['/Details']"><span class="fa fa-plus">&nbsp; Add Photo</span></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<br>
+
+<!-- tile view on the home page-->
+<div [hidden]="showSelected" [hidden]="showUpdate" class="clickOnImage container">
+		<div  class="row">
+			<div *ngFor="let photo of photos | slice:0:20 | paginate: { itemsPerPage: 9, currentPage: page }" class="ngfor col-sm-4">
+          <div class="thumbnail thumbnail-height">
+            <a (click)="SeeUpdateForm()" (click)="updatePhotos(photo, id, title, thumbnailUrl)"><img  src="{{photo.thumbnailUrl}}" alt="" #_thumbnailUrl></a>
+              <div class="caption">
+                  <p id="name" #_id><strong>{{photo.id + 100}}</strong></p>
+                  <hr>
+                  <p id="description" #_title><strong>{{photo.title}}</strong></p>
+              </div> 
+          </div>
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <pagination-controls [hidden]="switchDeleteImage" class = "paginationStyle" (pageChange)="page = $event"></pagination-controls>
+  
+  <!-- container to display after Delete All-->
+  <div [hidden]="!switchDeleteImage" class="mid">
+    <img src="../../assets/images/garbage-40357_640.png" 
+    alt="https://pixabay.com/en/garbage-basket-bin-trash-rubbish-40357/">
+    <h1>NO TILE ITEM TO SHOW</h1>
+    <a title="Home" (click)="refreshPage()" class="fa fa-home"></a>
+  </div>
+
+</div> <!-- tile view div ends -->
+
+
+<!-- table view on the home page-->
+<div [hidden]="!showSelected" class="container">
+
+  <table class="customTable table table-hover">
+      <thead>
+        <tr [hidden]="switchDeleteImage">
+          <th style="width: 5%"></th>
+          <th style="width: 10%">Name</th>
+          <th style="width: 25%">Description</th>
+          <th style="width: 40%">URLs</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let photo of photos | slice:0:20 | paginate: { itemsPerPage: 9, currentPage: page }">
+        <tr scope="row">
+          <td>
+            <span (click)="deletePhoto(photo)" class="fa fa-trash"></span>
+          </td>
+          <td>{{photo.id+100}}</td>
+          <td>{{photo.title}}</td>
+          <td>{{photo.thumbnailUrl}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br>
+
+    <!-- Delete All -->
+    <a (click)="switchDeleteToImage()">
+      <button [hidden]="switchDeleteImage" class="btn-sm btn-outline-danger" (click)="DeleteAll()">
+      Delete All
+      </button>
+    </a>
+
+    <!-- Pagination -->
+    <pagination-controls [hidden]="switchDeleteImage" class = "paginationStyle" (pageChange)="page = $event"></pagination-controls>
+
+    <!-- container to display after Delete All-->
+    <div [hidden]="!switchDeleteImage" class="mid">
+      <img src="../../assets/images/garbage-40357_640.png" 
+      alt="https://pixabay.com/en/garbage-basket-bin-trash-rubbish-40357/">
+      <h1>NO TABLE ITEM TO SHOW</h1>
+      <a title="Home" (click)="refreshPage()" class="fa fa-home"></a>
+    </div>
+  
+</div> <!-- table view div ends -->
+
+
+<!-- modify the details in the form to update entry-->
+<div [hidden]="!showUpdate" class="container">
+  <form class="customForm" >
+      <div class="form-group">
+        <label class="small" for="InputText1"><strong>Name</strong></label>
+        <input type="text" class="form-control" id="InputText1" #id>
+      </div>
+      <br>
+      <div class="form-group">
+          <label class="small" for="FormControlTextarea1"><strong>Description</strong></label>
+          <textarea class="form-control" id="FormControlTextarea1" rows="3" #title></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+          <label class="small" for="InputUrls"><strong>URLs</strong></label>
+          <input type="text" id="InputUrls" class="form-control" #thumbnailUrl>
+      </div>
+      <br>
+      <div class="buttonCustomClass">
+          <button (click)="SeeUpdateForm()" class="buttonStyle" type="button" class="btn btn-secondary">Back</button>
+          <button class="buttonStyle" type="button" class="btn btn-primary" (click)="updating()">Update</button>
+      </div>
+  </form>
+</div>
+
+
+

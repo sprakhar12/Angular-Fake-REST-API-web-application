@@ -1,0 +1,53 @@
+var app = angular.module('myApp', []);
+	var token = localStorage.getItem('access_token');
+app.controller('myCtrl', function($scope, $http) {
+    var csrf_token = document.getElementsByName('_token')[0].value;
+
+    $scope.load = function() {
+		if(token==null){
+            window.location = "/user/login";
+    }
+
+
+
+
+	$scope.createPost = function(){
+        if(this.title!=null && this.short_description!=null && this.description!=null){
+            $http({
+                method : "POST",
+                url : "/api/posts/create",
+                data : {
+                    title : this.title,
+                    short_description : this.short_description,
+                    description : this.description,
+                }
+                headers: {
+                    'X-CSRF-TOKEN': csrf_token,
+                    'Authorization' : "Bearer "+token,
+                    'Accept' : 'application/json'
+                }
+            })
+                if(response.data.code===200){
+            .then(function(response) {
+                    window.location = "/";
+                }
+            },function(error){
+                $(".title-error").html("Error creating your post.");
+            });
+        }else{
+            // var error = [];
+            if(this.title==null){
+                // error.push("Title cannot be empty");
+                $(".title-error").html("Title cannot be empty");
+            }
+            if(this.short_description==null){
+                // error.push("Short Description cannot be empty");
+                $(".short-description-error").html("Short Description cannot be empty");
+            }
+            if(this.description==null){
+                // error.push("Description cannot be empty");
+                $(".description-error").html("Description cannot be empty");
+            }
+        }
+	}
+});

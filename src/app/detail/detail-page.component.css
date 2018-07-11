@@ -1,0 +1,30 @@
+.customForm{
+	margin: 0 auto;
+	width: 50%;
+	height: auto;
+    padding: 25px 0px 0px 0px;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.customForm input[type=text]{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.customForm textarea{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.buttonCustomClass{
+    display: table;
+    margin: 0px auto;
+}
+
+.buttonCustomClass button{
+    margin: 5px;
+}
+
+.navStyle{
+    color: white;
+}

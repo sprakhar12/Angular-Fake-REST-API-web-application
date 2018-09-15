@@ -1,5 +1,5 @@
-# Angular_FakeAPIapp
-Angular4 Application cooperated with Fake API calls
+# Angular Fake REST API application
+Angular Application cooperated with Fake REST API calls
 
 This repository only contain the code files, ignoring the deployment to github pages
 as the application is already hosted on firebase. [Check Here](https://my-first-angular-app-b4f42.firebaseapp.com/)
